@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leave History</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('/assets/bg.jpg'); 
+      background-size: cover;
+      background-position: center;
+      opacity: 0.7; 
+      z-index: -2; 
+    }
+
+    body::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+      z-index: -1; 
+    }
+  </style>
+
+</head>
+<body>
+    <div class="container bg-white shadow rounded mt-5">
+        <h1 class="text-center">Leave History</h1>
+        <table class="table table-striped mt-4">
+            <thead>
+                <tr>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Reason</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% leaves.forEach(leave => { %>
+                    <tr>
+                        <td><%= leave.leavestartdate %></td>
+                        <td><%= leave.leaveenddate %></td>
+                        <td><%= leave.leavereason %></td>
+                        <td><%= leave.leavetype %></td>
+                        <td><%= leave.leavestatus %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
